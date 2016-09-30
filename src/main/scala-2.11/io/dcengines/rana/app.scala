@@ -13,7 +13,10 @@ object app extends App {
   val spark = SparkSession.builder().config(conf).master("local").getOrCreate()
 
   val df = spark.sqlContext.read.format("io.dcengines.rana.datasource").load("data/")
-  df.printSchema()
+//  df.printSchema()
+
+  //print the data
+  df.show()
 
   println("Application Ended...")
 }
