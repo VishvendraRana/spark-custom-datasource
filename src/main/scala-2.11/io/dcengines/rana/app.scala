@@ -26,8 +26,12 @@ object app extends App {
 //  df.write.mode(SaveMode.Overwrite).format("io.dcengines.rana.datasource").save("out_none/")
 
   //select some specific columns
+//  df.createOrReplaceTempView("test")
+//  spark.sql("select id, name, salary from test").show()
+
+  //filter data
   df.createOrReplaceTempView("test")
-  spark.sql("select id, name, salary from test").show()
+  spark.sql("select * from test where salary = 50000").show()
 
   println("Application Ended...")
 }
